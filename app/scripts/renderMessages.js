@@ -2,6 +2,7 @@ import $ from 'jquery'
 import ChatGroup from './chatModel'
 import user from './userModel'
 import getMessages from './getMessages'
+import renderUserList from './renderUsers'
 
 const apiURL = 'https://tiny-za-server.herokuapp.com/collections/mlyck-chat/'
 
@@ -10,13 +11,25 @@ let $chatGroupBtn = $('#chat-group-btn')
 let $chatGroupName = $('#chat-group-name')
 
 function renderMessages() {
-  console.log(user);
   $chatGroupName.text(user.currentChat.chatName)
   // console.log('RENDERING MESSAGES');
   $messages.empty()
+  if (user.currentChat.chatName !== 'Everyone') {
+    let $specialLi = $(`
+        <li class="chat-options">
+          <button id="edit-chat">Edit</button>
+          <button id="add-user-to-chat">Add User</button>
+        </li>
+      `)
+    $messages.append($specialLi)
+    $specialLi.children('#add-user-to-chat').on('click', function() {
+      renderUserList(user.currentChat)
+      console.log('CLICK')
+    })
+  }
   user.currentChat.messages.forEach(function(message) {
     let $li = $(`
-      <li data-id="${message._id}">
+      <li class="message" data-id="${message._id}">
         <a>
           <div class="wrapper">
             <h3 class="sender">${message.sender}</h3>

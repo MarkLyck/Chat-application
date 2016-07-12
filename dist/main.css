@@ -2668,7 +2668,7 @@ main {
   align-items: center;
   padding: 12vh 0;
   overflow-y: scroll; }
-  #messages li {
+  #messages .message {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
@@ -2677,17 +2677,17 @@ main {
     background: #048adf;
     border-radius: 5px;
     color: #fff; }
-    #messages li a {
+    #messages .message a {
       padding: 20px;
       width: 100%; }
-      #messages li a .wrapper {
+      #messages .message a .wrapper {
         display: flex;
         justify-content: space-between; }
-        #messages li a .wrapper .time-stamp {
+        #messages .message a .wrapper .time-stamp {
           color: rgba(255, 255, 255, 0.6); }
-      #messages li a .message-body {
+      #messages .message a .message-body {
         margin-top: 10px; }
-    #messages li button {
+    #messages .message button {
       background: #f26363;
       color: #fff;
       padding: 0;
@@ -2695,7 +2695,7 @@ main {
       border-bottom-right-radius: 5px;
       border-top-right-radius: 5px;
       transition: 200ms; }
-      #messages li button:hover {
+      #messages .message button:hover {
         background: #f04b4b; }
   #messages .my-text {
     background: #E6E5EB;
@@ -2714,6 +2714,19 @@ main {
   #messages .show-button button {
     width: 100px;
     padding: 20px; }
+  #messages .chat-options {
+    display: flex;
+    width: 80%; }
+    #messages .chat-options button {
+      box-sizing: border-box;
+      flex-grow: 1;
+      margin: 0 10px;
+      border-radius: 5px;
+      padding: 10px;
+      background: #E6E5EB; }
+      #messages .chat-options button:hover {
+        background: #048adf;
+        color: #fff; }
 
 footer {
   display: flex;

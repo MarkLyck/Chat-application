@@ -59,7 +59,7 @@ main {
   align-items: center;
   padding: 12vh 0;
   overflow-y: scroll;
-  li {
+  .message {
     margin-top: 20px;
     display: flex;
     // flex-direction: column;
@@ -126,6 +126,22 @@ main {
       // display: block;
       width: 100px;
       padding: 20px;
+    }
+  }
+  .chat-options {
+    display: flex;
+    width: 80%;
+    button {
+      box-sizing: border-box;
+      flex-grow: 1;
+      margin: 0 10px;
+      border-radius: 5px;
+      padding: 10px;
+      background: #E6E5EB;
+      &:hover {
+        background: $primary-color;
+        color: #fff;
+      }
     }
   }
 }

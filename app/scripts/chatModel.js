@@ -1,6 +1,7 @@
 import $ from 'jquery'
 const apiURL = 'https://tiny-za-server.herokuapp.com/collections/mlyck-chat/'
 import user from './userModel';
+import putOtherUser from './putOtherUser'
 
 function ChatGroup(chatName) {
   this.type = 'chat'
@@ -49,19 +50,6 @@ ChatGroup.prototype.addToGroup = function(user) {
     }
   })
 }
-
-function putOtherUser(otherUser) {
-  $.ajax({
-    url: apiURL + otherUser._id,
-    type: 'PUT',
-    data: JSON.stringify(otherUser),
-    contentType: 'application/json',
-    success: response => {
-      console.log('Updated other user: ' + otherUser.userName)
-    }
-  })
-}
-
 
 
 export default ChatGroup
