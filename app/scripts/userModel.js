@@ -80,7 +80,8 @@ User.prototype.putUser = function() {
 }
 
 function startGetRequestLoop() {
-  var waitingForOppMove = setInterval(function() {
+  var waitingForUpdates = setInterval(function() {
+    console.log(user.currentChat);
     $.ajax({
       url: apiURL + user.currentChat._id,
       type: 'GET',
@@ -89,6 +90,11 @@ function startGetRequestLoop() {
           user.currentChat = response
           getMessages()
         }
+        // console.log(user.currentChat.chatName);
+        // console.log(response.currentChat.chatName);
+        // if (user.currentChat.chatName !== response.currentChat.chatName) {
+        //   getMessages()
+        // }
       }
     })
     $.ajax({

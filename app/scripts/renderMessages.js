@@ -12,7 +12,6 @@ let $chatGroupName = $('#chat-group-name')
 
 function renderMessages() {
   $chatGroupName.text(user.currentChat.chatName)
-  // console.log('RENDERING MESSAGES');
   $messages.empty()
   if (user.currentChat.chatName !== 'Everyone') {
     let $specialLi = $(`
@@ -24,7 +23,11 @@ function renderMessages() {
     $messages.append($specialLi)
     $specialLi.children('#add-user-to-chat').on('click', function() {
       renderUserList(user.currentChat)
-      console.log('CLICK')
+    })
+    $specialLi.children('#edit-chat').on('click', function() {
+      console.log('EDIT CHAT');
+      $('.modal-container').css('display', 'flex')
+      $('.chat-name-modal').css('display', 'flex')
     })
   }
   user.currentChat.messages.forEach(function(message) {

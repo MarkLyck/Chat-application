@@ -28,7 +28,7 @@ ChatGroup.prototype.postChat = function(otherUser) {
 
 ChatGroup.prototype.putChat = function() {
   $.ajax({
-    url: apiURL,
+    url: apiURL + this._id,
     type: 'PUT',
     data: JSON.stringify(this),
     contentType: 'application/json',

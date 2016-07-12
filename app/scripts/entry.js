@@ -19,6 +19,10 @@ let $newChat = $('#new-chat-btn')
 let $chatGroupsList = $('#chat-groups')
 let $allUsersList = $('#all-users')
 
+let $setNameInput = $('#chat-name-input')
+let $setNameBtn = $('#set-chat-name')
+
+
 let showingChatGroups = false
 
 $changeGroupBtn.on('click', function() {
@@ -142,3 +146,32 @@ $sendBtn.on('click', function() {
     $sendBtn.removeClass('valid-message')
   }
 })
+
+
+$setNameBtn.on('click', function() {
+  if ($setNameInput.val() !== '') {
+      console.log('YOU ARE ALLOWED TO CLICK THIS BUTTON!');
+      user.currentChat.chatName = $setNameInput.val()
+      putChat(user.currentChat)
+      user.chats.forEach(function(chat, i) {
+        if (chat._id === user.currentChat._id) {
+          user.chats[i].chatName = user.currentChat.chatName
+        }
+      })
+      $('.modal-container').css('display', 'none')
+      $('.chat-name-modal').css('display', 'none')
+      renderMessages()
+  }
+})
+
+function putChat(chat) {
+  $.ajax({
+    url: apiURL + chat._id,
+    type: 'PUT',
+    data: JSON.stringify(chat),
+    contentType: 'application/json',
+    success: response => {
+      console.log('Updated chat on server.')
+    }
+  })
+}

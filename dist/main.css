@@ -2771,6 +2771,24 @@ footer {
       color: #fff;
       cursor: pointer; }
 
+.chat-name-modal {
+  background: #fff;
+  display: none;
+  flex-direction: column;
+  width: 40%;
+  padding: 50px;
+  border-radius: 5px; }
+  .chat-name-modal input {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f2f2f2; }
+  .chat-name-modal button {
+    padding: 20px;
+    color: #fff;
+    background: #048adf; }
+    .chat-name-modal button:hover {
+      background: #047ac6; }
+
 body {
   overflow-y: hidden; }
 

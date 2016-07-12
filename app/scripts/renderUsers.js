@@ -36,7 +36,6 @@ function renderUserList(currChat) {
               </li>
             `)
           $allUsersList.append($li)
-          console.log(currChat);
           if (!currChat.chatName) {
             // $allUsersList.empty()
             $li.on('click', startChatWithUser.bind(null, userInLoop))
