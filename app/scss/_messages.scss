@@ -69,6 +69,10 @@ main {
   .other-text {
     transform: translateX(5%);
   }
+  .mentioned {
+    background: rgb(164, 79, 255);
+    color: #fff;
+  }
   .show-button {
     button {
       display: block;

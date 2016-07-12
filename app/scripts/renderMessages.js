@@ -32,8 +32,8 @@ function renderMessages() {
     } else {
       $li.addClass('other-text')
     }
-    if (message.body.indexOf('@' + user.userName)) {
-
+    if (message.body.indexOf('@' + user.userName) !== -1) {
+      $li.addClass('mentioned')
     }
     $messages.append($li)
     $li.on('click', () => {

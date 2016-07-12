@@ -486,6 +486,9 @@ main {
     transform: translateX(-5%); }
   #messages .other-text {
     transform: translateX(5%); }
+  #messages .mentioned {
+    background: #a44fff;
+    color: #fff; }
   #messages .show-button button {
     display: block; }
 
