@@ -7,11 +7,14 @@ import putOtherUser from './putOtherUser'
 const apiURL = 'https://tiny-za-server.herokuapp.com/collections/mlyck-chat/'
 
 let $allUsersList = $('#all-users')
+let $chatGroupsList = $('#chat-groups')
 let showingAllUsers = false
 
 function renderUserList(currChat) {
+  $allUsersList.empty()
+  $chatGroupsList.empty()
   if (showingAllUsers) {
-    $allUsersList.empty()
+    // $allUsersList.empty()
     renderMessages();
     showingAllUsers = false
   } else {
@@ -51,6 +54,7 @@ function renderUserList(currChat) {
 
 function addUserToChat(otherUser) {
   $allUsersList.empty()
+  renderMessages()
   user.currentChat.users.push(otherUser.userName)
   otherUser.chats.push(user.currentChat)
   user.putUser()

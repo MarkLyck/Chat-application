@@ -17,12 +17,14 @@ let $sendBtn = $('#send-btn')
 let $changeGroupBtn = $('#chat-group-btn')
 let $newChat = $('#new-chat-btn')
 let $chatGroupsList = $('#chat-groups')
+let $allUsersList = $('#all-users')
 
 let showingChatGroups = false
 
 $changeGroupBtn.on('click', function() {
+  $allUsersList.empty()
+  $chatGroupsList.empty()
   if (showingChatGroups) {
-    $chatGroupsList.empty()
     renderMessages();
     showingChatGroups = false
   } else {
