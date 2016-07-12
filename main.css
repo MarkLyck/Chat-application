@@ -2590,7 +2590,7 @@ textarea {
   position: absolute;
   top: 0;
   background: rgba(0, 0, 0, 0.8);
-  z-index: 2; }
+  z-index: 10; }
 
 .login-modal {
   background: #fff;
@@ -2621,7 +2621,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   display: flex; }
   header button {
     height: 100%;
@@ -2723,7 +2723,7 @@ footer {
   overflow: hidden;
   position: fixed;
   bottom: 0;
-  z-index: 0;
+  z-index: 2;
   box-shadow: 0 0 5px #6e6e6e; }
   footer input {
     width: 80%;
@@ -2733,7 +2733,8 @@ footer {
   footer button {
     width: 20%;
     height: 100%;
-    background: #E6E5EB; }
+    background: #048adf;
+    color: #fff; }
     footer button:hover {
       background: #f26363;
       color: #fff; }
@@ -2742,6 +2743,20 @@ footer {
     color: #fff; }
     footer .valid-message:hover {
       background: #047ac6; }
+
+#chat-groups, #all-users {
+  background: #fff;
+  margin-top: -14vh;
+  width: 100%; }
+  #chat-groups li, #all-users li {
+    width: 100%;
+    padding: 30px 20px;
+    border-bottom: 1px solid gray; }
+    #chat-groups li:hover, #all-users li:hover {
+      background: #048adf;
+      border-color: #048adf;
+      color: #fff;
+      cursor: pointer; }
 
 body {
   overflow-y: hidden; }
