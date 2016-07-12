@@ -1,0 +1,39 @@
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 2;
+}
+
+.login-modal {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 50px;
+    border-radius: 5px;
+    input {
+      margin-top: 20px;
+      padding: 20px;
+      background: darken(#fff, 5%);
+    }
+    button {
+      padding: 20px;
+      color: #fff;
+      background: rgb(122, 122, 122);
+      &:hover {
+        background: rgb(227, 74, 74);
+      }
+    }
+    .valid-user {
+      background: $primary-color;
+      &:hover {
+        background: darken($primary-color, 5%)
+      }
+    }
+}

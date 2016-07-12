@@ -1,0 +1,110 @@
+header {
+  height: 10vh;
+  overflow: hidden;
+  border-bottom: 2px solid $invalid-color;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    // background: $invalid-color;
+    background: #fff;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+main {
+  background: #fff;
+  height: 80vh;
+  z-index: -1;
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12vh 0;
+  li {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-bottom: 1px solid darken(#fff, 5%);
+    background: $primary-color;
+    border-radius: 10px;
+    color: #fff;
+    a {
+      padding: 20px;
+      .wrapper {
+        display: flex;
+        justify-content: space-between;
+      }
+      .message-body {
+        margin-top: 5px;
+      }
+    }
+    button {
+      display: none;
+      background: $color-danger;
+      color: #fff;
+      padding: 20px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      &:hover {
+        background: darken($color-danger, 5%)
+      }
+    }
+  }
+  .my-text {
+    background: $invalid-color;
+    color: #000;
+    transform: translateX(-5%);
+  }
+  .other-text {
+    transform: translateX(5%);
+  }
+  .show-button {
+    button {
+      display: block;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  background: green;
+  height: 10vh;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  z-index: 0;
+  box-sizing: border-box;
+  input {
+    width: 80%;
+    height: 100%;
+    border: none;
+    box-sizing: border-box;
+    border-top: 2px solid $invalid-color;
+    border-bottom: 2px solid $invalid-color;
+    padding-left: 30px;
+  }
+  button {
+    width: 20%;
+    height: 100%;
+    background: $invalid-color;
+    border-top: 2px solid $invalid-color;
+  }
+  .valid-message {
+    background: $primary-color;
+    border-top: 2px solid $primary-color;
+    border-bottom: 2px solid $primary-color;
+    color: #fff;
+  }
+}
