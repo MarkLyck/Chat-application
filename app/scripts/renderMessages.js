@@ -32,6 +32,9 @@ function renderMessages() {
     } else {
       $li.addClass('other-text')
     }
+    if (message.body.indexOf('@' + user.userName)) {
+
+    }
     $messages.append($li)
     $li.on('click', () => {
       $li.toggleClass('show-button')
