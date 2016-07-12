@@ -4,7 +4,7 @@ import renderMessages from './renderMessages'
 const apiURL = 'https://tiny-za-server.herokuapp.com/collections/mlyck-chat/'
 
 function getMessages() {
-  console.log('GETTING MESSAGES');
+  // console.log('GETTING MESSAGES');
   $.ajax({
     url: apiURL,
     type: 'GET',
@@ -15,15 +15,15 @@ function getMessages() {
         }
       })
       allChats.forEach(function(chat) {
-        console.log('CHAT');
-        console.log(user);
+        // console.log('CHAT');
+        // console.log(user);
         if (chat.chatName === user.currentChat.chatName) {
-          console.log('CHAT MATCHED');
+          // console.log('CHAT MATCHED');
           user.currentChat = chat
           renderMessages()
         }
       })
-      console.log('AC: ', allChats);
+      // console.log('AC: ', allChats);
     }
   })
 }

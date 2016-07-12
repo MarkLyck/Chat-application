@@ -10,8 +10,9 @@ let $chatGroupBtn = $('#chat-group-btn')
 let $chatGroupName = $('#chat-group-name')
 
 function renderMessages() {
+  console.log(user);
   $chatGroupName.text(user.currentChat.chatName)
-  console.log('RENDERING MESSAGES');
+  // console.log('RENDERING MESSAGES');
   $messages.empty()
   user.currentChat.messages.forEach(function(message) {
     let $li = $(`
@@ -43,7 +44,7 @@ function renderMessages() {
     $li.children('button').on('click', function() {
       user.currentChat.messages.forEach(function(message){
         if (message._id === $li.data().id) {
-          console.log(message);
+          // console.log(message);
           deleteMessage(message);
         }
       })
@@ -68,7 +69,7 @@ function updateChat(chatToUpdate) {
     data: JSON.stringify(chatToUpdate),
     contentType: 'application/json',
     success: response => {
-      console.log('Updated chat on server.')
+      // console.log('Updated chat on server.')
     }
   })
 }

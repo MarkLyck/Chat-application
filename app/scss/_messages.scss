@@ -5,7 +5,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   button {
     height: 100%;
@@ -138,7 +138,7 @@ footer {
   overflow: hidden;
   position: fixed;
   bottom: 0;
-  z-index: 0;
+  z-index: 2;
   box-shadow: 0 0 5px #6e6e6e;
   input {
     width: 80%;
@@ -149,7 +149,8 @@ footer {
   button {
     width: 20%;
     height: 100%;
-    background: $invalid-color;
+    background: $primary-color;
+    color: #fff;
     &:hover {
       background: $color-danger;
       color: #fff;

@@ -6,10 +6,10 @@ function ChatGroup(chatName) {
   this.type = 'chat'
   this.users = []
   this.messages = []
-  this.chatName = chatName || 'Chat'
+  this.chatName = chatName || 'Everyone'
 }
 
-ChatGroup.prototype.postChat = function() {
+ChatGroup.prototype.postChat = function(otherUser) {
   $.ajax({
     url: apiURL,
     type: 'POST',
@@ -17,7 +17,10 @@ ChatGroup.prototype.postChat = function() {
     contentType: 'application/json',
     success: response => {
       this._id = response._id
-      console.log('You created a new Chat')
+      if (otherUser) {
+        putOtherUser(otherUser)
+      }
+      // console.log('You created a new Chat')
     }
   })
 }
@@ -29,7 +32,7 @@ ChatGroup.prototype.putChat = function() {
     data: JSON.stringify(this),
     contentType: 'application/json',
     success: response => {
-      console.log('Updated chat on server.')
+      // console.log('Updated chat on server.')
     }
   })
 }
@@ -42,7 +45,19 @@ ChatGroup.prototype.addToGroup = function(user) {
     data: JSON.stringify(this),
     contentType: 'application/json',
     success: response => {
-      console.log(`Added ${user} to ${this.chatName}`)
+      // console.log(`Added ${user} to ${this.chatName}`)
+    }
+  })
+}
+
+function putOtherUser(otherUser) {
+  $.ajax({
+    url: apiURL + otherUser._id,
+    type: 'PUT',
+    data: JSON.stringify(otherUser),
+    contentType: 'application/json',
+    success: response => {
+      console.log('Updated other user: ' + otherUser.userName)
     }
   })
 }

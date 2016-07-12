@@ -12,6 +12,7 @@ function User(userName) {
   this.userName = $loginInput.val()
   this.type = 'user'
   this.chats = []
+  this.currentChat = chatGroups[0]
 }
 
 User.prototype.login = function() {
@@ -21,7 +22,6 @@ User.prototype.login = function() {
       url: apiURL,
       type: 'GET',
       success: response => {
-        console.log(response);
         if (response.length === 0) {
           this.postUser()
         } else {
@@ -32,23 +32,19 @@ User.prototype.login = function() {
             }
           }).forEach(currUser => {
             if (this.userName.toLowerCase() === currUser.userName.toLowerCase()) {
-              console.log('FOUND EXISITNG USER')
               Object.assign(user, currUser)
               userFound = true
             }
           })
           if (userFound === false) { // If the user doesn't already exist create a new one
-            console.log('CREATE NEW USER')
+            this.chats.push(chatGroups[0])
+            this.currentChat = chatGroups[0]
             this.postUser()
-            // addPlayerToGlobal()
-            this.chat = chatGroups[0]
-            // chatGroups[0].addToGroup(this)
           }
         }
         $('.modal-container').css('display', 'none')
         $('.modal').css('display', 'none')
         getMessages()
-        // renderMessages()
         startGetRequestLoop()
       }
     })
@@ -58,20 +54,6 @@ User.prototype.login = function() {
   }
 }
 
-// function addPlayerToGlobal() {
-//   chatGroups[0].users.push(user);
-//   $.ajax({
-//     url: apiURL + chatGroups[0]._id,
-//     type: 'PUT',
-//     data: JSON.stringify(chatGroups[0]),
-//     contentType: 'application/json',
-//     success: response => {
-//       console.log('Updated globalChat')
-//     }
-//   })
-// }
-
-
 User.prototype.postUser = function() {
   $.ajax({
     url: apiURL,
@@ -79,7 +61,6 @@ User.prototype.postUser = function() {
     data: JSON.stringify(this),
     contentType: 'application/json',
     success: response => {
-      console.log(response);
       this._id = response._id
       console.log('You created a new user')
     }
@@ -93,7 +74,7 @@ User.prototype.putUser = function() {
     data: JSON.stringify(this),
     contentType: 'application/json',
     success: response => {
-      console.log('Updated user')
+      console.log('Updated user', response)
     }
   })
 }
@@ -110,12 +91,21 @@ function startGetRequestLoop() {
         }
       }
     })
+    $.ajax({
+      url: apiURL + user._id,
+      type: 'GET',
+      success: response => {
+        if (user.chats.length !== response.chats.length) {
+          user.chats = response.chats
+        }
+      }
+    })
     console.log('TIMELOOP');
   }, 2000)
 }
 
 
 let user = new User();
-user.currentChat = chatGroups[0]
+// user.currentChat = chatGroups[0]
 
 export default user;
