@@ -11,6 +11,7 @@ let $loginInput = $('#login-input')
 function User(userName) {
   this.userName = $loginInput.val()
   this.type = 'user'
+  this.chats = []
 }
 
 User.prototype.login = function() {

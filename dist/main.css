@@ -2686,9 +2686,9 @@ main {
         #messages li a .wrapper .time-stamp {
           color: rgba(255, 255, 255, 0.6); }
       #messages li a .message-body {
-        margin-top: 5px; }
+        margin-top: 10px; }
     #messages li button {
-      background: #e34a4a;
+      background: #f26363;
       color: #fff;
       padding: 0;
       width: 0;
@@ -2696,7 +2696,7 @@ main {
       border-top-right-radius: 5px;
       transition: 200ms; }
       #messages li button:hover {
-        background: #e03434; }
+        background: #f04b4b; }
   #messages .my-text {
     background: #E6E5EB;
     color: #000;
@@ -2735,7 +2735,7 @@ footer {
     height: 100%;
     background: #E6E5EB; }
     footer button:hover {
-      background: #e34a4a;
+      background: #f26363;
       color: #fff; }
   footer .valid-message {
     background: #048adf;

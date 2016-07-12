@@ -97,27 +97,3 @@ $sendBtn.on('click', function() {
     $sendBtn.removeClass('valid-message')
   }
 })
-
-Message.prototype.send = function() {
-  user.currentChat.messages.push(this)
-  $.ajax({
-    url: apiURL + user.currentChat._id,
-    type: 'PUT',
-    data: JSON.stringify(user.currentChat),
-    contentType: 'application/json',
-    success: response => {
-      user.currentChat = response;
-      renderMessages()
-    }
-  })
-}
-
-Message.prototype.delete = function() {
-  $.ajax({
-    url: apiURL + user.currentChat._id,
-    type: 'GET',
-    success: response => {
-      console.log(response);
-    }
-  })
-}
