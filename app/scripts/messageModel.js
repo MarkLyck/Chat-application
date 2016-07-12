@@ -3,7 +3,7 @@ import moment from 'moment'
 function Message() {
   this.body = ''
   this.sender = ''
-  this.timeStamp = moment().format('MMM Do HH:MM')
+  this.timeStamp = moment().format('MMM DD HH:MM')
   this._id = randomString(25)
 }
 

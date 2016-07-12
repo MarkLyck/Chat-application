@@ -7,13 +7,13 @@ const apiURL = 'https://tiny-za-server.herokuapp.com/collections/mlyck-chat/'
 
 let $messages = $('#messages')
 let $chatGroupBtn = $('#chat-group-btn')
+let $chatGroupName = $('#chat-group-name')
 
 function renderMessages() {
-  $chatGroupBtn.text(user.currentChat.chatName)
+  $chatGroupName.text(user.currentChat.chatName)
   console.log('RENDERING MESSAGES');
   $messages.empty()
   user.currentChat.messages.forEach(function(message) {
-    console.log('Adding message', message);
     let $li = $(`
       <li data-id="${message._id}">
         <a>
@@ -38,6 +38,7 @@ function renderMessages() {
     $messages.append($li)
     $li.on('click', () => {
       $li.toggleClass('show-button')
+      // $li.children('button').css('width', '50px');
     })
     $li.children('button').on('click', function() {
       user.currentChat.messages.forEach(function(message){
